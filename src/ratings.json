@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "producto": "GTX 1660",
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThmOCmXDY85b5kA3lhmQd0qIVmTwFffwwqww&s",
+        "reseña": "Un producto un poco antiguo a su epoca, pero puede servir para gente que aun quiera jugar y tiene poco presupuesto",
+        "calificacion": 7
+    },
+    {
+        "id": 2,
+        "producto": "Ryzen",
+        "imagen": "https://media.spdigital.cl/thumbnails/products/of2nke17_20c552f2_thumbnail_256.png",
+        "reseña": "Muy buenos para jugar y trabajar, pero sobretodo para juegos",
+        "calificacion": 9
+    }
+]

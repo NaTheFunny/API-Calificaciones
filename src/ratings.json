@@ -1,11 +1,13 @@
 [
     {   
         "id": 1,
+        "productId": 1,
         "score": 5,
         "review": "Excelente producto."
     },
     {   
         "id": 2,
+        "productId": 2,
         "score": 5,
         "review": "Excelente producto."
     }

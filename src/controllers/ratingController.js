@@ -6,14 +6,22 @@ const getRatings = (req, res) => {
 };
 
 const getRatingById = (req, res) => {
+    const { productId } = req.params;
     const ratings = loadRatings();
-    const rating = ratings.find(r => r.id === parseInt(req.params.id));
-    if (!rating) return res.status(404).send('Calificación no encontrada.');
-    res.json(rating);
+    const productRatings = ratings.filter(r => r.productId === parseInt(productId));
+    res.json(productRatings);
+};
+
+const getRatingsByProductId = (req, res) => {
+    const { productId } = req.params;
+    const ratings = loadRatings();
+    const productRatings = ratings.filter(r => r.productId === parseInt(productId));
+
+    res.json(productRatings);
 };
 
 const createRating = (req, res) => {
-    const { score, review } = req.body;
+    const { productId, score, review } = req.body;
 
     if (score == null || review == null) {
         return res.status(400).json({ message: 'Score y review son requeridos.' });
@@ -23,6 +31,7 @@ const createRating = (req, res) => {
         const ratings = loadRatings();
         const newRating = {
             id: ratings.length + 1, 
+            productId: Number(productId),
             score: Number(score), 
             review: review
         };
@@ -36,4 +45,4 @@ const createRating = (req, res) => {
     }
 };
 
-module.exports = { getRatings, getRatingById, createRating };
+module.exports = { getRatings, getRatingById, createRating, getRatingsByProductId };

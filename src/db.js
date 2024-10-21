@@ -3,14 +3,23 @@ const path = require('path');
 
 const filePath = path.join(__dirname, 'ratings.json');
 
-function loadRatings() {
+const loadRatings = () => {
     try {
-        const data = fs.readFileSync(filePath);
-        return JSON.parse(data);
+        const dataBuffer = fs.readFileSync(filePath, 'utf8');
+        const ratings = JSON.parse(dataBuffer);
+        return ratings;
     } catch (error) {
-        console.error('Error al cargar ratings.json:', error);
+        console.error('Error al cargar las calificaciones:', error);
         return []; 
     }
-}
+};
 
-module.exports = { loadRatings };
+const saveRatings = (ratings) => {
+    try {
+        fs.writeFileSync(filePath, JSON.stringify(ratings, null, 2), 'utf8');
+    } catch (error) {
+        console.error('Error al guardar las calificaciones:', error);
+    }
+};
+
+module.exports = { loadRatings, saveRatings };

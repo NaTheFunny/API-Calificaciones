@@ -8,7 +8,7 @@
     ],
     "routes": [
       {
-        "src": "/api/ratings(.*)",
+        "src": "/api/ratings",
         "dest": "src/server.js"
       }
     ]
